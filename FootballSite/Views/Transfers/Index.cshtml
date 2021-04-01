@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FootballSite.Transfer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Трансфери</h1>
+
+<p>
+    <a asp-action="Create">Створити</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CostOfPlayer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostOfPlayer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.ClubName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TransferId">Змінити</a> |
+                <a asp-action="Details" asp-route-id="@item.TransferId">Деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.TransferId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

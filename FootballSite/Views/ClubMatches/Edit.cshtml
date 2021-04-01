@@ -1,0 +1,46 @@
+﻿@model FootballSite.ClubMatch
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Змінити</h1>
+
+<h4>Матч клубу</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MatchId" autocomplete="off" />
+            <div class="form-group">
+                <label asp-for="MatchName" class="control-label"></label>
+                <input asp-for="MatchName" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchResult" class="control-label"></label>
+                <input asp-for="MatchResult" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchResult" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="FirstClubId" autocomplete="off"/>
+            <input type="hidden" asp-for="SecondClubId" autocomplete="off"/>
+            <div class="form-group">
+                <label asp-for="MatchDate" class="control-label"></label>
+                <input asp-for="MatchDate" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" autocomplete="off"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

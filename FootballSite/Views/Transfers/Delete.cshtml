@@ -1,0 +1,53 @@
+﻿@model FootballSite.Transfer
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Видалити</h1>
+
+<h3>Ви впевнені що хочете видалити цей трансфер?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CostOfPlayer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CostOfPlayer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Buyer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Buyer.ClubId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Player)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Player.PlayerId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Seller)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Seller.ClubId)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TransferId" />
+        <input type="hidden" asp-for="SellerId" />
+        <input type="hidden" asp-for="BuyerId" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

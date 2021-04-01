@@ -1,0 +1,52 @@
+﻿@model FootballSite.Team
+
+@{
+    ViewData["Title"] = "Створити";
+}
+
+<h1>Створити</h1>
+
+<h4>Збірна</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label"></label>
+                <select asp-for="CountryId" class ="form-control" asp-items="ViewBag.CountryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachFirstName" class="control-label"></label>
+                <input asp-for="CoachFirstName" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="CoachFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachLastName" class="control-label"></label>
+                <input asp-for="CoachLastName" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="CoachLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachDateOfBirth" class="control-label"></label>
+                <input asp-for="CoachDateOfBirth" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="CoachDateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachBiography" class="control-label"></label>
+                <input asp-for="CoachBiography" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="CoachBiography" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" autocomplete="off"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

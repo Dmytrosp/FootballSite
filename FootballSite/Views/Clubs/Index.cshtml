@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FootballSite.Club>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Клуби</h1>
+
+<p>
+    <a asp-action="Create">Додати нову команду</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachDateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StadiumName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StadiumCapacity)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachDateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StadiumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StadiumCapacity)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClubId">Змінити</a> |
+                <a asp-action="Details" asp-route-id="@item.ClubId">Деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClubId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FootballSite.TeamMatch>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Матчі збірних</h1>
+
+<p>
+    <a asp-action="Create">Створити</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchDate)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDate)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MatchId">Змінити</a> |
+                <a asp-action="Details" asp-route-id="@item.MatchId">Деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.MatchId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

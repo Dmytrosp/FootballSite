@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FootballSite.Player>
+
+@{
+    ViewData["Title"] = "Гравці клубу";
+}
+
+<h1>Гравці збірної @ViewBag.TeamName</h1>
+
+<p>
+    @Html.ActionLink("Додати нового гравця", "Create", new {teamId = ViewBag.TeamId })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Biography)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Biography)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td>
+           
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PlayerId">Змінити</a> |
+                <a asp-action="Details" asp-route-id="@item.PlayerId">Деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.PlayerId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

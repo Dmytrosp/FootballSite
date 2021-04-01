@@ -1,0 +1,51 @@
+﻿@model FootballSite.TeamMatch
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Створити</h1>
+
+<h4>Матч збарної</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MatchName" class="control-label"></label>
+                <input asp-for="MatchName" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchResult" class="control-label"></label>
+                <input asp-for="MatchResult" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchResult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstTeamId" class="control-label"></label>
+                <select asp-for="FirstTeamId" class ="form-control" asp-items="ViewBag.FirstTeamId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondTeamId" class="control-label"></label>
+                <select asp-for="SecondTeamId" class ="form-control" asp-items="ViewBag.SecondTeamId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchDate" class="control-label"></label>
+                <input asp-for="MatchDate" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="MatchDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" autocomplete="off"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
