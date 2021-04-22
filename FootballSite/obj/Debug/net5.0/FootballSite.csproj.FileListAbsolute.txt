@@ -184,3 +184,4 @@ C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\V
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\PlayersForTeams\Details.cshtml.g.cs
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\PlayersForTeams\Edit.cshtml.g.cs
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\PlayersForTeams\Index.cshtml.g.cs
+C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\Home\Charts.cshtml.g.cs

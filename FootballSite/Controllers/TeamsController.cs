@@ -60,6 +60,14 @@ namespace FootballSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CountryId,CoachFirstName,CoachLastName,CoachDateOfBirth,CoachBiography")] Team team)
         {
+            if ((DateTime.Now.Year - team.CoachDateOfBirth.Year) < 18 || (DateTime.Now.Year - team.CoachDateOfBirth.Year) > 120)
+            {
+                var existedTeams1 = _context.Teams.Include(t => t.Country).Select(t => t.Country);
+                ViewData["CountryId"] = new SelectList(_context.Countries.ToList().Except(existedTeams1), "CountryId", "CountryName");
+                ModelState.AddModelError("CoachDateOfBirth", "Неправильна дата");
+                return View(team);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(team);
@@ -83,6 +91,7 @@ namespace FootballSite.Controllers
                 return NotFound();
             }
 
+
             var team = await _context.Teams.FindAsync(id);
             if (team == null)
             {
@@ -102,6 +111,13 @@ namespace FootballSite.Controllers
             if (id != team.TeamId)
             {
                 return NotFound();
+            }
+
+            if ((DateTime.Now.Year - team.CoachDateOfBirth.Year) < 18 || (DateTime.Now.Year - team.CoachDateOfBirth.Year) > 120)
+            {
+                ViewData["CountryId"] = new SelectList(_context.Countries, "CountryId", "CountryId", team.CountryId);
+                ModelState.AddModelError("CoachDateOfBirth", "Неправильна дата");
+                return View(team);
             }
 
             if (ModelState.IsValid)

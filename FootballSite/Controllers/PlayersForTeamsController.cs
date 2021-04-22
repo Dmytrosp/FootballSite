@@ -79,6 +79,13 @@ namespace FootballSite.Controllers
         {
             player.TeamId = teamId;
 
+            if ((DateTime.Now.Year - player.DateOfBirth.Value.Year) < 18 || (DateTime.Now.Year - player.DateOfBirth.Value.Year) > 120)
+            {
+                ViewData["CountryId"] = new SelectList(_context.Countries, "CountryId", "CountryName");
+                ModelState.AddModelError("DateOfBirth", "Неправильна дата");
+                return View(player);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(player);
@@ -131,6 +138,15 @@ namespace FootballSite.Controllers
             if (id != player.PlayerId)
             {
                 return NotFound();
+            }
+
+            if ((DateTime.Now.Year - player.DateOfBirth.Value.Year) < 18 || (DateTime.Now.Year - player.DateOfBirth.Value.Year) > 120)
+            {
+                ViewData["CountryId"] = new SelectList(_context.Countries, "CountryId", "CountryName", player.CountryId);
+                var teams1 = _context.Teams.Include(t => t.Country).Select(x => new { TeamId = x.TeamId, CountryName = x.Country.CountryName });
+                ViewData["TeamId"] = new SelectList(teams1, "TeamId", "CountryName");
+                ModelState.AddModelError("DateOfBirth", "Неправильна дата");
+                return View(player);
             }
 
             if (ModelState.IsValid)

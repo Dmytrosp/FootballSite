@@ -62,6 +62,16 @@ namespace FootballSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TransferId,SellerId,BuyerId,PlayerId,CostOfPlayer,Date")] Transfer transfer)
         {
+
+            if (transfer.CostOfPlayer < 0)
+            {
+                ModelState.AddModelError("CostOfPlayer", "Ціна не може бути від'ємною");
+                ViewData["BuyerId"] = new SelectList(_context.Clubs, "ClubId", "ClubName");
+                ViewData["PlayerId"] = new SelectList(_context.Players.Where(x => x.ClubId > 0), "PlayerId", "LastName");
+                ViewData["SellerId"] = new SelectList(_context.Clubs, "ClubId", "ClubName");
+                return View(transfer);
+            }
+
             if (_context.Players.Where(x => x.ClubId == transfer.SellerId).Any(x => x.PlayerId == transfer.PlayerId))
             {
                 if(transfer.SellerId != transfer.BuyerId)
@@ -118,6 +128,15 @@ namespace FootballSite.Controllers
             if (id != transfer.TransferId)
             {
                 return NotFound();
+            }
+
+            if (transfer.CostOfPlayer < 0)
+            {
+                ModelState.AddModelError("CostOfPlayer", "Ціна не може бути від'ємною");
+                ViewData["BuyerId"] = new SelectList(_context.Clubs, "ClubId", "ClubName");
+                ViewData["PlayerId"] = new SelectList(_context.Players.Where(x => x.ClubId > 0), "PlayerId", "LastName");
+                ViewData["SellerId"] = new SelectList(_context.Clubs, "ClubId", "ClubName");
+                return View(transfer);
             }
 
             if (_context.Players.Where(x => x.ClubId == transfer.SellerId).Any(x => x.PlayerId == transfer.PlayerId))

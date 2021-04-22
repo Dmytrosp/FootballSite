@@ -57,6 +57,20 @@ namespace FootballSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ClubId,ClubName,CoachFirstName,CoachLastName,CoachDateOfBirth,StadiumName,StadiumCapacity,CoachBiography")] Club club)
         {
+
+            if ((DateTime.Now.Year - club.CoachDateOfBirth.Value.Year) < 18 || (DateTime.Now.Year - club.CoachDateOfBirth.Value.Year) > 120)
+            {
+               
+                ModelState.AddModelError("CoachDateOfBirth", "Неправильна дата");
+                return View(club);
+            }
+
+            if(club.StadiumCapacity < 0)
+            {
+                ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
+                return View(club);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(club);
@@ -74,6 +88,7 @@ namespace FootballSite.Controllers
                 return NotFound();
             }
 
+            
             var club = await _context.Clubs.FindAsync(id);
             if (club == null)
             {
@@ -92,6 +107,19 @@ namespace FootballSite.Controllers
             if (id != club.ClubId)
             {
                 return NotFound();
+            }
+
+            if ((DateTime.Now.Year - club.CoachDateOfBirth.Value.Year) < 18 || (DateTime.Now.Year - club.CoachDateOfBirth.Value.Year) > 120)
+            {
+
+                ModelState.AddModelError("CoachDateOfBirth", "Неправильна дата");
+                return View(club);
+            }
+
+            if (club.StadiumCapacity < 0)
+            {
+                ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
+                return View(club);
             }
 
             if (ModelState.IsValid)
