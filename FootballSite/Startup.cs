@@ -9,9 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
+using Newtonsoft;
 using FootballSite.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace FootballSite
 {
@@ -30,7 +31,7 @@ namespace FootballSite
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DBLibraryContext>(options => options.UseSqlServer(connection));
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

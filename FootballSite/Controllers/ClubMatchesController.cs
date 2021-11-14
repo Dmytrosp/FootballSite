@@ -45,6 +45,7 @@ namespace FootballSite.Controllers
             return View(clubMatch);
         }
 
+
         // GET: ClubMatches/Create
         public IActionResult Create()
         {

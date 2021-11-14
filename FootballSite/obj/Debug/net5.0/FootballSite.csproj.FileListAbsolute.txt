@@ -41,7 +41,6 @@ C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\runtime
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\FootballSite.csprojAssemblyReference.cache
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\FootballSite.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\FootballSite.AssemblyInfoInputs.cache
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\FootballSite.AssemblyInfo.cs
@@ -185,3 +184,7 @@ C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\V
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\PlayersForTeams\Edit.cshtml.g.cs
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\PlayersForTeams\Index.cshtml.g.cs
 C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\Razor\Views\Home\Charts.cshtml.g.cs
+C:\Users\Home-PC\source\repos\FootballSite\FootballSite\obj\Debug\net5.0\FootballSite.csproj.AssemblyReference.cache
+C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Home-PC\source\repos\FootballSite\FootballSite\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
