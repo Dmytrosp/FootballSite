@@ -20,7 +20,7 @@ namespace FootballSite.Controllers.API
         }
 
 
-        //index
+        //GET: index
         [HttpGet("players")]
         public async Task<IActionResult> GetPlayersByClub(int? id, string name)
         {
@@ -57,7 +57,7 @@ namespace FootballSite.Controllers.API
 
             return Ok(player);
         }
-
+        
         // POST: Players/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -137,7 +137,7 @@ namespace FootballSite.Controllers.API
         }
 
 
-        // GET: Players/Delete/5
+        // POST: Players/Delete/5
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(int? id)
         {

@@ -51,10 +51,10 @@ namespace FootballSite.Controllers.API
 
 
 
-        // POST: Clubs/Create
+        // GET: Clubs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost("create")]
+        [HttpGet("create")]
         public async Task<IActionResult> Create(Club club)
         {
 
@@ -65,10 +65,6 @@ namespace FootballSite.Controllers.API
                 return BadRequest("Неправильна дата");
             }
 
-            if (club.StadiumCapacity < 0)
-            {
-                return BadRequest("Місткість не може бути від'ємною");
-            }
 
 
                 if (ModelState.IsValid)
@@ -103,10 +99,7 @@ namespace FootballSite.Controllers.API
                 return BadRequest("Неправильна дата");
             }
 
-            if (club.StadiumCapacity < 0)
-            {
-                return BadRequest("Місткість не може бути від'ємною");
-            }
+           
 
             if (ModelState.IsValid)
             {
@@ -137,13 +130,7 @@ namespace FootballSite.Controllers.API
         }
 
 
-
-
-
-
-
-
-        // GET: Clubs/Delete/5
+        // POST: Clubs/Delete/5
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -161,26 +148,6 @@ namespace FootballSite.Controllers.API
 
             return Ok();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

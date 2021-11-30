@@ -40,15 +40,14 @@ namespace FootballSite
         public DateTime? CoachDateOfBirth { get; set; }
 
 
-        [Required(ErrorMessage = "Поле не повинно будти порожнім")]
-        [Display(Name = "Назва стадіону")]
-        public string StadiumName { get; set; }
+        //[Required(ErrorMessage = "Поле не повинно будти порожнім")]
+        //[Display(Name = "Назва стадіону")]
+        //public string StadiumName { get; set; }
 
 
-        [Required(ErrorMessage = "Поле не повинно будти порожнім")]
-        [Display(Name = "Місткість стадіону")]
-        public int? StadiumCapacity { get; set; }
-
+        //[Required(ErrorMessage = "Поле не повинно будти порожнім")]
+        //[Display(Name = "Місткість стадіону")]
+        //public int? StadiumCapacity { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно будти порожнім")]
         [Display(Name = "Біографія тренера")]

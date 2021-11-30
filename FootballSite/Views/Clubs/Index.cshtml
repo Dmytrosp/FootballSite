@@ -25,12 +25,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.CoachDateOfBirth)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StadiumName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StadiumCapacity)
-            </th>
            
             <th></th>
         </tr>
@@ -50,12 +44,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CoachDateOfBirth)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StadiumName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StadiumCapacity)
-            </td>
+      
             
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ClubId">Змінити</a> |

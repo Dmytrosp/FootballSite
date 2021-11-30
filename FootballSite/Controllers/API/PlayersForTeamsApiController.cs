@@ -146,7 +146,7 @@ namespace FootballSite.Controllers.API
 
 
 
-        // GET: Players/Delete/5
+        // POST: Players/Delete/5
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(int? id)
         {

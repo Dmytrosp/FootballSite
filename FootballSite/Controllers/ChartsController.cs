@@ -39,7 +39,7 @@ namespace GalleryApplication.Controllers
         [HttpGet("StadiumData")]
         public IActionResult StadiumData()
         {
-            var stadiums = _context.Clubs.Select(x => new { stadiumName = x.StadiumName, stadiumCapacity = x.StadiumCapacity });
+            var stadiums = _context.Stadiums.Select(x => new { stadiumName = x.StadiumName, stadiumCapacity = x.StadiumCapacity });
 
             List<object> result = new List<object>();
 

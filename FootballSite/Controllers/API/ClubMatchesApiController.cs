@@ -62,7 +62,7 @@ namespace FootballSite.Controllers.API
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("create")]
-        [ValidateAntiForgeryToken]
+      
         public async Task<IActionResult> Create(ClubMatch clubMatch)
         {
             if (clubMatch.FirstClubId != clubMatch.SecondClubId)
@@ -127,7 +127,7 @@ namespace FootballSite.Controllers.API
 
 
 
-        // GET: ClubMatches/Delete/5
+        // POST: ClubMatches/Delete/5
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(int? id)
         {

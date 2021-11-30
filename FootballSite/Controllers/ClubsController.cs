@@ -65,11 +65,11 @@ namespace FootballSite.Controllers
                 return View(club);
             }
 
-            if(club.StadiumCapacity < 0)
-            {
-                ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
-                return View(club);
-            }
+            //if(club.Stadium.StadiumCapacity < 0)
+            //{
+            //    ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
+            //    return View(club);
+            //}
 
             if (ModelState.IsValid)
             {
@@ -116,11 +116,11 @@ namespace FootballSite.Controllers
                 return View(club);
             }
 
-            if (club.StadiumCapacity < 0)
-            {
-                ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
-                return View(club);
-            }
+            //if (club.Stadium.StadiumCapacity < 0)
+            //{
+            //    ModelState.AddModelError("StadiumCapacity", "Місткість не може бути від'ємною");
+            //    return View(club);
+            //}
 
             if (ModelState.IsValid)
             {
