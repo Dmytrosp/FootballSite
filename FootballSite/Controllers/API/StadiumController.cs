@@ -36,12 +36,27 @@ namespace FootballSite.Controllers.API
             return Ok(stadium);
         }
 
+        [HttpPost("add-stadium")]
+        public IActionResult AddStadium(Stadium stadium)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Stadiums.Add(stadium);
+                _context.SaveChanges();
+            }
+
+            return Ok(stadium);
+        }
+
         [HttpDelete("delete-stadium")]
         public IActionResult DeleteStadium(int id)
         {
             var stadium = _context.Stadiums.Find(id);
 
-            if(stadium == null) return NotFound(); 
+            if(stadium == null) return NotFound();
+
+            _context.Stadiums.Remove(stadium);
+            _context.SaveChanges();
 
             return NoContent();
         }
